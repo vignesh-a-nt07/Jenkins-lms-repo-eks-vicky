@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeAccountAttributes",
+        "ec2:DescribeAddresses",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeInternetGateways",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeVpcPeeringConnections",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeInstances",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeTags",
+        "elasticloadbalancing:*",
+        "iam:CreateServiceLinkedRole",
+        "iam:GetServerCertificate",
+        "iam:ListServerCertificates",
+        "waf-regional:*",
+        "wafv2:*",
+        "shield:*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
