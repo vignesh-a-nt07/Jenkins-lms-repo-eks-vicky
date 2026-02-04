@@ -6,8 +6,12 @@ variable "project_name" {
   default = "lms-vicky"
 }
 
-variable "container_port" {
-  default = 3000
+variable "kubernetes_version" {
+  default = "1.34"
+}
+
+variable "node_instance_type" {
+  default = "t3.small"
 }
 
 variable "db_name" {
