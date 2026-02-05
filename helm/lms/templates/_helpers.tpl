@@ -3,5 +3,5 @@ lms
 {{- end }}
 
 {{- define "lms.fullname" -}}
-{{ .Release.Name }}-{{ include "lms.name" . }}
+lms
 {{- end }}

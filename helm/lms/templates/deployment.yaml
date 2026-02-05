@@ -1,11 +1,23 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: {{ include "lms.fullname" . }}
 spec:
-  type: {{ .Values.service.type }}
+  replicas: {{ .Values.replicaCount }}
   selector:
-    app: {{ include "lms.name" . }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    matchLabels:
+      app: {{ include "lms.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "lms.name" . }}
+    spec:
+      containers:
+        - name: lms
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.database.secretName }}
