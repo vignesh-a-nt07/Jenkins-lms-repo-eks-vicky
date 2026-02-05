@@ -5,5 +5,8 @@ export default defineConfig({
   schema: "./configs/schema.js",
   dbCredentials: {
     url: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   },
 });
